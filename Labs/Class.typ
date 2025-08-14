@@ -245,7 +245,7 @@
 
 // REMINDER
 #let reminder = align(center + bottom)[
-	#image("Images/reminder.png")
+	#image("Images/reminder.png", width: 70%)
 	#rect[*#text(smallcaps("In each document, you have to insert well annotated screenshots of your code after being executed."))*]
 	]
 	
