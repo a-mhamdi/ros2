@@ -7,19 +7,16 @@ To get things rolling, give this file a look at first: [https://gist.github.com/
 > [!NOTE]
 > You can either follow the steps below for local installation or use the provided Docker image for a containerized environment.
 
-Source the **ROS** installation and current shared package directory.
+To begin, you need to source the ROS 2 installation and the current shared package directory. This command sets up your environment to use the *ROS2* tools:
 
 ```bash
 source install/setup.bash
 ```
-Compile the packages:
-1. `listen_talk_pkg`
+
+Once your environment is set up, you can build a specific package by using the `colcon` build command and specifying the package name:
+
 ```bash
-colcon build --packages-select listen_talk_pkg
-```
-2. `robot`
-```bash
-colcon build --packages-select robot
+colcon build --packages-select <package_name>
 ```
 
 ## Docker Setup
@@ -32,7 +29,7 @@ Codes run on top of a `Docker` image, ensuring a consistent and reproducible env
 To run the code, you will need to first pull the `Docker` image by running the following command:
 
 ```zsh
-docker pull abmhamdi/ros
+docker pull abmhamdi/ros2
 ```
 
 This may take a while, as it will download and install all necessary dependencies.
@@ -42,7 +39,5 @@ This may take a while, as it will download and install all necessary dependencie
 * ```docker-compose up -d``` starts the container in detached mode
 * ```docker-compose down``` stops and destroys the container
 
-<!-- Services can be run by typing the command `docker-compose up`. This will start the `Jupyter Lab` on [http://localhost:2468](http://localhost:2468), and you should be able to use `Python` from within the notebook by starting a new `Python` notebook. You can parallelly start `Marimo` on [http://localhost:1357](http://localhost:1357). -->
-
 ## License
-This project is licensed under the MIT License - see the [LICENSE](https://raw.githubusercontent.com/a-mhamdi/nlp/refs/heads/main/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://raw.githubusercontent.com/a-mhamdi/ros2/refs/heads/main/LICENSE) file for details.

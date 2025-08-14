@@ -18,7 +18,7 @@ Alternatively, you can use `docker-compose` to manage the containers. This is es
 docker-compose up -d
 ```
 
-This will build and run the necessary containers as defined in the [docker-compose.yml](docker-compose.yml) file.
+This will build and run the necessary containers as defined in the [docker-compose.yml](https://raw.githubusercontent.com/a-mhamdi/ros2/refs/heads/main/docker-compose.yml) file.
 
 **GitHub Actions** build and push this image to [dockerhub](https://hub.docker.com/). Every update is available at [abmhamdi/ros2](https://hub.docker.com/repository/docker/abmhamdi/ros2).
 
