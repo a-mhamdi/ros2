@@ -1,0 +1,8 @@
+build: write-config
+  typst compile ROS2.typ
+
+watch: write-config
+  typst watch --open xdg-open ROS2.typ
+
+write-config:
+  echo "Done!" 
