@@ -1,13 +1,14 @@
 services:
-
-  marimo:
-    image: abmhamdi/nlp
-    ports:
-      - "1357:1357"
-    command: marimo edit --host 0.0.0.0 --port 1357 --headless --no-token
-
-  jupyter:
-    image: abmhamdi/nlp
-    ports:
-      - "2468:2468"
-    command: jupyter lab --NotebookApp.token='' --ip 0.0.0.0 --port 2468 --allow-root --no-browser
+  ros:
+    image: abmhamdi/ros2
+    privileged: true
+    network_mode: "host"
+    devices:
+      - /dev/dri
+    environment:
+      - DISPLAY
+      - QT_X11_NO_MITSHM=1
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    stdin_open: true  # equivalent to -i
+    tty: true         # equivalent to -t
