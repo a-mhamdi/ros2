@@ -1,0 +1,26 @@
+\documentclass{standalone}
+\usepackage{ifpdf}
+\usepackage{tikz}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, backgrounds, fit, positioning, shapes.geometric, calc, decorations.pathreplacing, decorations.markings}
+
+\usepackage{xltxtra}
+\usepackage{xunicode}
+
+% Fonts
+\usepackage{fontspec}
+\defaultfontfeatures{Mapping=tex-text}
+
+\usepackage{newtxsf}
+\setmainfont[Ligatures=TeX, UprightFont=*-Regular, BoldFont=*-Bold, SmallCapsFont=*-SmallCaps, ItalicFont=*-Italic]{Delicious} % {Fontin}
+\usepackage{mathastext}
+
+\usepackage{comment}
+\begin{document}
+
+	\input{node.tikz}
+
+\end{document}

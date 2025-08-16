@@ -1,0 +1,52 @@
+\begin{tikzpicture}%[xscale=.7, yscale=.6]
+
+\draw[thick] (-4.5664,1.9036) circle (2cm) node {\bf \huge{Node}};
+%\draw[fill=red!20] (-5,2) ellipse (1.5cm and .5cm) node {\begin{tabular}{c}Service\\Client\end{tabular}};
+\draw[fill=green!20] (-4.5664,-0.0964) ellipse (1.5cm and .5cm) node {Subscriber};
+\draw[dashed, fill=gray!20,rounded corners=2pt] (-4.5664,0.2536) rectangle (-2.5664,0.7536); \node at (-3.5664,0.5036) {Message};
+
+\draw[thick] (4.3887,1.9343) circle (2cm) node {\bf \huge{Node}};
+% \draw[fill=red!20] (5,2) ellipse (1.5cm and .5cm) node {\begin{tabular}{c}Service\\Client\end{tabular}};
+\draw[fill=green!20] (4.3887,-0.0657) ellipse (1.5cm and .5cm) node {Subscriber};
+\draw[dashed, fill=gray!20,rounded corners=2pt] (1.9887,0.2843) rectangle (3.9887,0.7843); \node at (2.9887,0.5343) {Message};
+
+\draw[thick] (0.8598,5.8559) circle (2cm) node {\bf \huge{Node}};
+%\draw[fill=red!20] (5.4872,7.8688) ellipse (1.5cm and .5cm) node {\begin{tabular}{c}Service\\Client\end{tabular}};
+\draw[fill=green!20] (0.8598,3.8559) ellipse (1.5cm and .5cm) node {Publisher};
+\draw[dashed, fill=gray!20,rounded corners=2pt] (-1.5402,4.2059) rectangle (0.4598,4.7059); \node at (-0.5402,4.4559) {Message};
+
+\draw[rounded corners=2pt, thick, fill=orange!20] (-1,0) rectangle (1, 1);
+\node at (0,.5) {\bf Topic};
+
+%\draw[rounded corners=2pt, thick, fill=purple!60] (-2.1295,8.0521) rectangle (-0.1295,5.0521);
+%\node at (-1.1295,7.5521) {\bf Service};
+%\node[fill=yellow!20] at (-1.1295,5.5521) {Response};
+%\node[fill=yellow!20] at (-1.1295,6.5521) {Request};
+
+%\node (n1) at (-3.7023,2.1839) {}; \node (n2) at (-5.0553,2.4067) {};
+%\node (n3) at (-1.7916,6.6052) {}; \node (n4) at (-1.9014,5.5997) {};
+
+%\draw[-latex, out=90,in=180] (n2) to (n3);
+%\draw[-latex, out=180,in=0] (n4) to (n1);
+
+%\node (r1) at (-0.5103,6.5885) {};
+%\node (r2) at (-0.4231,5.5449) {};
+%\node (s1) at (4.1154,7.8512) {};
+%\node (s2) at (4.3563,7.6137) {};
+
+%\draw[-latex, out=0,in=180] (r1) to (s1);
+%\draw[-latex, out=190,in=0] (s2) to (r2);
+
+\node (m1) at (-0.5364,3.8807) {};
+\node (m2) at (3.0438,-0.1944) {};
+\node (m3) at (-3.2035,-0.2251) {};
+
+\node (t1) at (0.4552,0.1205) {};
+\node (t2) at (-0.3667,0.1205) {};
+\node (t3) at (-0.0154,0.8577) {};
+
+\draw[-latex, thick, out=180,in=90] (m1) to (t3);
+\draw[-latex, thick, out=270,in=180] (t1) to (m2);
+\draw[-latex, thick, out=270,in=0] (t2) to (m3);
+
+\end{tikzpicture}
