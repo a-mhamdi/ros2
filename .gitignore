@@ -53,3 +53,9 @@ install
 log
 
 **.idea
+Slides/imgs/tikz/main.aux
+Slides/imgs/tikz/main.fdb_latexmk
+Slides/imgs/tikz/main.fls
+Slides/imgs/tikz/main.log
+Slides/imgs/tikz/main.synctex.gz
+Slides/gc-overview.svg

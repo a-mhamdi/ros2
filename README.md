@@ -34,8 +34,8 @@ This may take a while, as it will download and install all necessary dependencie
 
 ## How to control the containers:
 
-* ```docker-compose up -d``` starts the container in detached mode
-* ```docker-compose down``` stops and destroys the container
+* ```docker-compose up -d``` starts the containers in detached mode
+* ```docker-compose down``` stops and destroys the containers
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](https://raw.githubusercontent.com/a-mhamdi/ros2/refs/heads/main/LICENSE) file for details.
