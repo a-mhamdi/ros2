@@ -252,7 +252,7 @@
 /* TEMPLATE 
 #exo[Title][Content.]
 
-```julia
+```python
 # WRITE YOUR CODE HERE
 ```
 
