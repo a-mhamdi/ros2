@@ -12,7 +12,7 @@
 #show link:underline
 
 #set document(
-  title: "ROS",
+  title: "ROS2",
   author: "A. Mhamdi",
   // keywords: ***,
   date: auto
@@ -39,7 +39,7 @@
 
 #show: metropolis-theme.with(
   aspect-ratio: "16-9",
-  footer: self => "ROS | A. Mhamdi",
+  footer: self => "ROS2 | A. Mhamdi",
   config-info(
     title: [Robot Operating Systems],
     subtitle: [Robot Software Development],
