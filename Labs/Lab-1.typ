@@ -42,9 +42,9 @@
 
 First, identify which shell we're currently using:
 ```bash
-which $SHELL
+echo $SHELL
 ```
-This command returns the path to the current shell executable (`bash`, `zsh`, etc.). Different shells may require different setup procedures, so this information is important for proper configuration.
+This prints the path to the current shell executable (`bash`, `zsh`, etc.). Different shells may require different setup procedures, so this information is important for proper configuration.
 
 == Sourcing ROS2 Installation
 
@@ -52,9 +52,11 @@ Add ROS2 commands and environment variables to the current terminal session:
 ```bash
 source /opt/ros/humble/setup.bash
 ```
-This step is essential as *ROS2* commands won't be available without sourcing. The sourcing must be done in every new terminal session, or we can add this line to our shell's configuration file (`.bashrc`, `.zshrc`) to make it automatic.
+This step is essential as *ROS2* commands won't be available without sourcing. The sourcing must be done in every new terminal session (each new terminal needs: `source /opt/ros/humble/setup.bash`), or we can add this line to our shell's configuration file (`.bashrc`, `.zshrc`) to make it automatic.
 
 = Running Our First ROS2 Node
+
+#text(style: "italic")[Reminder: In any new terminal, run `source /opt/ros/humble/setup.bash` before ROS2 commands.]
 
 A *node* is a fundamental unit of computation. Each node is a separate process that performs a specific task. Nodes communicate with each other through topics, services, and actions. The command structure follows the pattern: 
 ```bash
@@ -110,6 +112,8 @@ For the 2D turtle, we primarily use `linear.x` _(forward/backward)_ and `angular
 
 = Publishing Messages
 
+#text(style: "italic")[Reminder: In any new terminal, run `source /opt/ros/humble/setup.bash` before ROS2 commands.]
+
 == Single Movement Command
 
 If we want to move the turtle forward by 1 unit, we can publish a single message to the `/turtle1/cmd_vel` topic:
@@ -146,6 +150,8 @@ This debugging tool displays all messages on the specified topic. When used alon
 
 = Interactive Control
 
+#text(style: "italic")[Reminder: In any new terminal, run `source /opt/ros/humble/setup.bash` before ROS2 commands.]
+
 == Direct Turtle Teleop
 
 Let's use TurtleSim's built-in keyboard control to teleoperate the turtle:
@@ -167,9 +173,11 @@ The command components are:
 
 = System Visualization
 
+#text(style: "italic")[Reminder: In any new terminal, run `source /opt/ros/humble/setup.bash` before ROS2 commands.]
+
 There is a tool to visualize the relationships between nodes and topics, called `rqt_graph`:
 ```bash
-rqt_graph
+ros2 run rqt_graph rqt_graph
 ```
 This opens a graphical tool displaying:
 - Nodes as ovals
@@ -218,16 +226,16 @@ The visualization helps understand data flow in *ROS2* systems and is invaluable
   [`ros2 interface show <msg_type>`], [Show message structure],
   [`ros2 topic pub <topic> <type> <data>`], [Publish to topic],
   [`ros2 topic echo <topic>`], [Monitor topic messages],
-  [`rqt_graph`], [Visualize system graph]
+  [`ros2 run rqt_graph rqt_graph`], [Visualize system graph]
 ))
 
 #exo[Fibonacci Spiral][Implement a *ROS2* application using the `turtlesim` package to visualize the Fibonacci spiral. The turtle should trace the golden spiral pattern governed by the mathematical equation:
-$ r = a dot Phi ^(theta / (2 * pi)) $
+[$ r = a  Phi^{theta / (2\pi)} $]
 where:
 / $r$: radial distance from the origin,
 / $a$: a constant that controls the size of the spiral,
 / $Phi$: the golden ratio (approximately 1.618),
-/ $theta$: the angle in degrees.
+/ $theta$: the angle in radians.
 ]
 
 #test[Use smooth incremental angle steps for continuous curve visualization. You can choose $theta$ ranging from $0$ to $pi/ 4$ with small increments.]

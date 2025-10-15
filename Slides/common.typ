@@ -14,13 +14,13 @@
 #let c = counter("exo")
 #let exo(tlt, txt) = block[
 	#c.step()
-	#rect(fill: red, radius: 5pt)[*Task #context c.display(): #tlt *] 
+	#rect(fill: red.transparentize(75%), radius: 5pt)[*Task #context c.display(): #tlt *] 
 	#rect(fill: luma(221))[#txt]
 ]
 
 // SOLUTION
 #let solution(sol) = block[
-	#rect(fill: olive.transparentize(75%), radius: 5pt)[#sol]
+	#rect(fill: olive.transparentize(95%), radius: 5pt)[#sol]
 ]
   
 // TEST SCENARIO
@@ -35,6 +35,6 @@
 // CODE
 #let code(txt, path_filename) = block[
 	#octique("mark-github")
-	#rect(fill: blue.transparentize(50%), radius: 5pt)[#txt]
+	#rect(fill: blue.transparentize(50%), radius: 5pt)[#txt] 
 	#link("https://github.com/a-mhamdi/ros2/blob/main/" + path_filename)[#path_filename]
 ]

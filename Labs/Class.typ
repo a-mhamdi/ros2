@@ -1,7 +1,13 @@
 // This function gets your whole document as its `body` and formats
 // it as an article in the style of the IEEE.
 
-#import "@preview/octique:0.1.0": *
+#import "@preview/octique:0.1.1": *
+
+#import "@preview/codly:1.3.0": *
+#import "@preview/codly-languages:0.1.1": *
+#show: codly-init.with()
+
+#codly(languages: codly-languages)
 
 #let ieee(
 

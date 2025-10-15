@@ -6,7 +6,7 @@
 
 == What is a ROS2 Node?
 
-A *ROS2* node is a fundamental computational unit in the Robot Operating System 2 that represents an executable process within a robotic system. Unlike *ROS1*, *ROS2* introduces significant improvements in performance, security, and real-time capabilities.
+A *ROS2* node is a fundamental computational unit in the Robot Operating System 2 that represents an executable process within a robotic system.
 
 === Core Components
 
@@ -20,9 +20,9 @@ A *ROS2* node is a fundamental computational unit in the Robot Operating System 
 
 - Collect and process sensor data
 #example[
-  - Camera node
-  - LIDAR node
-  - IMU sensor node
+- Camera node
+- LIDAR node
+- IMU sensor node
 ]
 
 ==== Actuator Nodes
@@ -90,13 +90,59 @@ ros2 service call /add_two_ints example_interfaces/srv/AddTwoInts "{a: 5, b: 3}"
 - Allow feedback during execution
 - Support preemption and cancellation
 
+---
+
+#exo("Theory", [
+    1. What is a *ROS2* node?  
+    2. What is the difference between a topic and a service in *ROS2*?  
+    3. Give an example use case for a topic and one for a service.
+    ])
+
+---
+
+#solution[
+    1. A *ROS2* node is a fundamental process that performs computation in a *ROS2* system. Each node is an independent executable that can communicate with other nodes using topics, services, and actions.
+
+    2. A topic in *ROS2* is used for unidirectional, asynchronous, many-to-many communication (publish/subscribe), suitable for streaming data like sensor readings. A service is used for synchronous, two-way communication (request/response), suitable for tasks that require a reply, like resetting a simulation.
+
+    3. / Example use case for a topic: Publishing sensor data from a LIDAR to be consumed by multiple nodes.  
+    / Example use case for a service: A node requests another node to reset the simulation environment and waits for confirmation.
+]
+
+---
+
+#exo("Practical", [
+    4. Write the command to list all active nodes in a running *ROS2* system.
+    5. Suppose you have a node publishing to the topic `/chatter`. Write the command to echo messages from this topic.
+    6. What is the command to call a service named `/reset_simulation` of type `std_srvs/srv/Empty`?
+    ])
+
+---
+
+#solution[
+    4. Command to list all active nodes:
+    ```bash
+    ros2 node list
+    ```
+
+    5. Command to echo messages from the `/chatter` topic:
+    ```bash
+    ros2 topic echo /chatter
+    ```
+
+    6. Command to call the `/reset_simulation` service of type `std_srvs/srv/Empty`:
+    ```bash
+    ros2 service call /reset_simulation std_srvs/srv/Empty "{}"
+    ```
+]
+
+---
+
 == Build mechanism
 
 ```bash
 ros2 pkg create --build-type ament_python <package_name>
 ```
-
-#align(center)[#image("../imgs/project_struct.png", width: 60%)]
 
 This command creates a new *ROS2* package with the specified name, using the `ament_python` build type. The generated package structure will look like this:
 
@@ -114,20 +160,18 @@ This command creates a new *ROS2* package with the specified name, using the `am
 │   ├── test_flake8.py
 │   └── test_pep257.py
 └── <package_name>/
-    └── __init__.py
+└── __init__.py
 ```
+
+#align(center)[#image("../imgs/project_struct.png", width: 60%)]
 
 ---
 
 #info[Root Level Files]
+
 / `package.xml`: The package manifest file containing metadata about the package _(dependencies, version, description, maintainer info, etc.)_
 / `setup.py`: Python setup script that defines how the package should be built and installed
 / `setup.cfg`: Configuration file for setup tools, typically contains console script entry points
-
-To install the required dependencies, we need to navigate to the package directory and run:
-```bash
-rosdep install -i --from-path src/<package_name> --rosdistro humble -y   
-```
 
 ---
 
@@ -139,6 +183,11 @@ The `package.xml` file is a package manifest for *ROS2* that describes the packa
 - *Export Tags:* Extra information for the *ROS2* build system.
 
 Essentially, this file is how *ROS2* manages dependencies and compiles our package.
+
+To install the required dependencies, we need to navigate to the package directory and run:
+```bash
+rosdep install -i --from-path src/<package_name> --rosdistro humble -y   
+```
 
 #align(center)[#image("../imgs/pkg_xml.png", width: 70%)]
 
@@ -161,12 +210,80 @@ This file uses a standard *Python* packaging mechanism to work with the ament bu
 #info[Directories]
 / `resource/<package_name>`: Contains a marker file _(usually empty)_ that helps *ROS2* identify this as a package
 / `test/`: Contains basic test files:
-  / `test_copyright.py`: Checks for proper copyright headers
-  / `test_flake8.py`: Runs `flake8` linting
-  / `test_pep257.py`: Checks docstring conventions
+/ `test_copyright.py`: Checks for proper copyright headers
+/ `test_flake8.py`: Runs `flake8` linting
+/ `test_pep257.py`: Checks docstring conventions
 / `<package_name>/`: The main Python module directory where we'll write our actual *Python* code
-  / `__init__.py`: Makes this directory a Python package
-
+/ `__init__.py`: Makes this directory a Python package
 
 #align(center)[#image("../imgs/demo_ros_py.png", width: 70%)]
+
+#code("demo_ros_py", "ros2_ws/src/demo_ros_py")
+
 // #align(center)[#image("../../imgs/demo_ros_cpp.png", width: 70%)]
+
+---
+
+#exo("Mini Code (Python, minimal)", [
+    7. Fill in the blanks to create a simple *ROS2* publisher node in Python:
+    ])
+
+```python
+import rclpy
+from rclpy.node import ___
+from std_msgs.msg import ___
+
+class MinimalPublisher(___):
+    def __init__(___):
+        super().__init__('minimal_publisher')
+        self.publisher_ = self.create_publisher(String, '___', 10)
+        timer_period = ___  # seconds
+        self.timer = self.create_timer(timer_period, self.___)
+
+    def ___(___):
+        msg = ___()
+        msg.data = '___'
+        self.publisher_.___(___)
+        self.get_logger().info(f'Publishing: "{msg.data}"')
+
+def main(args=None):
+    rclpy.init(args=args)
+    ___ = MinimalPublisher()
+    rclpy.spin(___)
+    ___.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
+    ```
+
+    /*
+    ```python
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+
+class MinimalPublisher(Node):
+    def __init__(self):
+        super().__init__('minimal_publisher')
+        self.publisher_ = self.create_publisher(String, 'topic', 10)
+        timer_period = 0.5  # seconds
+        self.timer = self.create_timer(timer_period, self.timer_callback)
+
+    def timer_callback(self):
+        msg = String()
+        msg.data = 'Hello, ROS2!'
+        self.publisher_.publish(msg)
+        self.get_logger().info(f'Publishing: "{msg.data}"')
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = MinimalPublisher()
+    rclpy.spin(node)
+    node.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
+        ```
+         */
