@@ -24,3 +24,17 @@ This will build and run the necessary containers as defined in the [docker-compo
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/abmhamdi/ros2)](https://hub.docker.com/r/abmhamdi/ros2)
 [![Docker Stars](https://img.shields.io/docker/stars/abmhamdi/ros2)](https://hub.docker.com/r/abmhamdi/ros2)
+
+> [!IMPORTANT]
+> You may need to install an **X Server** for Windows *(e.g., [VcXsrv](https://vcxsrv.com/))*. Update the `docker-compose.yml`:
+> ```yaml
+> environment:
+>   - DISPLAY=host.docker.internal:0
+>   - QT_X11_NO_MITSHM=1
+> ```
+
+> [!WARNING]
+> Launch *VcXsrv* with the following settings:
+>   1. Display number: 0
+>   2. Start no client
+>   3. Disable access control
