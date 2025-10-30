@@ -2,13 +2,13 @@
 
 == A Practical Introduction
 
-*TurtleSim* is a beginner-friendly tool for learning *ROS2* concepts through visual, interactive examples. This lightweight simulator offers a 2D environment where we control virtual turtles that can move around, draw lines, and respond to commands. 
+*TurtleSim* is a beginner-friendly tool for learning *ROS 2* concepts through visual, interactive examples. This lightweight simulator offers a 2D environment where we control virtual turtles that can move around, draw lines, and respond to commands.
 
 === Installation
 
-*TurtleSim* comes pre-installed with the *ROS2* desktop installation. We can also install it using the following command:
+*TurtleSim* comes pre-installed with the *ROS 2* desktop installation. We can also install it using the following command:
 ```bash
-sudo apt install ros-humble-turtlesim # For Ubuntu 22: ROS2 Humble
+sudo apt install ros-humble-turtlesim # For Ubuntu 22: ROS 2 Humble
 ```
 The way to verify the installation is by checking the available executables:
 ```bash
@@ -23,7 +23,7 @@ The first step is launching the _turtlesim\_node_, which creates the simulation 
 ```bash
 ros2 run turtlesim turtlesim_node
 ```
-This command starts a blue simulation window with a turtle in the center. 
+This command starts a blue simulation window with a turtle in the center.
 
 #columns(2)[
 This node:
@@ -38,7 +38,7 @@ This node:
 ---
 
 #columns(2)[
-- The turtle's position and orientation are represented in a 2D coordinate system. 
+- The turtle's position and orientation are represented in a 2D coordinate system.
 - The turtle can move forward, backward, and rotate, and its pen can be raised or lowered to draw on the canvas.
 #colbreak()
 #image("../../imgs/turtlesim/turtlesim_terminal.png", width: 100%)
@@ -51,12 +51,12 @@ The turtle's state is managed by the _TurtleSim_ node, which processes incoming 
 ```bash
 # running nodes
 ros2 node list
-# active topics              
-ros2 topic list 
-# available services            
-ros2 service list 
-# display actions          
-ros2 action list    
+# active topics
+ros2 topic list
+# available services
+ros2 service list
+# display actions
+ros2 action list
 ```
 #colbreak()
 #image("../../imgs/turtlesim/turtlesim_node_list.png", width: 100%)
@@ -129,7 +129,7 @@ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0., y: 0.,
 
 ==== Using Services
 
-Services enable us to request specific actions or information from the turtle's services. 
+Services enable us to request specific actions or information from the turtle's services.
 
 #align(center)[#image("../../imgs/tikz/service.svg", width: 50%)]
 
@@ -152,7 +152,7 @@ ros2 service call /turtle1/teleport_relative turtlesim/srv/TeleportRelative "{li
 
 ---
 
-3. *Changing the Turtle's Color* 
+3. *Changing the Turtle's Color*
 ```bash
 ros2 service call /turtle1/set_pen turtlesim/srv/SetPen "{r: 255, g: 0, b: 0, width: 2, 'off': 0}"
 ```
@@ -169,7 +169,7 @@ ros2 service call /reset std_srvs/srv/Empty "{}"
 
 == Turtle Drawing Challenge
 
-In this exercise, you will use `turtlesim` to create a square pattern using only *ROS2* command-line tools. The goal is to make the turtle draw a perfect square without any programming.
+Use `turtlesim` to create a square pattern using only *ROS 2* command-line tools. The goal is to make the turtle draw a perfect square without any programming.
 
 === What to Observe
 
@@ -179,7 +179,7 @@ In this exercise, you will use `turtlesim` to create a square pattern using only
 
 === Learning Objectives
 
-- Understand *ROS2* topic publishing
+- Understand *ROS 2* topic publishing
 - Learn about service calls
 - Practice with `geometry_msgs/msg/Twist` messages
 - Experience real-time robot control concepts
@@ -271,7 +271,7 @@ ros2 service call /turtle1/teleport_relative turtlesim/srv/TeleportRelative "{li
 ```
 ]
 
---- 
+---
 
 #exo("Precision Challenge", [
     Try to make the turtle return to its starting position after completing the square. Use the `teleport_absolute` service to verify the final position.
@@ -294,7 +294,7 @@ ros2 service call /turtle1/teleport_absolute turtlesim/srv/TeleportAbsolute "{x:
 
 === Summary and Key Takeaways
 
-/ Understanding Twist Messages: 
+/ Understanding Twist Messages:
 - `linear.x`: Forward/backward velocity (positive = forward)
 - `angular.z`: Rotational velocity (positive = counterclockwise, negative = clockwise)
 - Values are in radians per second for rotation
