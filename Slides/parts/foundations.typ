@@ -1,6 +1,6 @@
 #import "../common.typ": *
 
-= ROS2 Foundations
+= ROS 2 Foundations
 
 ---
 
@@ -12,9 +12,11 @@
 
 The *Robot Operating System* (*ROS*) is an open-source, flexible framework for writing robot software. It is not an operating system in the traditional sense but rather a collection of software libraries, tools, and conventions that aim to simplify the task of creating complex and robust robot behavior across a wide variety of robotic platforms.
 
-*ROS* provides functionalities typically expected from an *OS*, including hardware abstraction, low-level device control, implementation of commonly-used functionality, message-passing between processes, and package management. 
+*ROS* provides functionalities typically expected from an *OS*, including hardware abstraction, low-level device control, implementation of commonly-used functionality, message-passing between processes, and package management.
 
 #goal[Its primary goal is to support code reuse in robotics research and development.]
+
+#align(center, image("../imgs/ros-metrics.png", width: 80%))
 
 ---
 
@@ -63,9 +65,9 @@ At its core, *ROS* provides a robust communication infrastructure that allows di
 
 ---
 
-#danger[Limitations of *ROS1*]
+#danger[Limitations of *ROS 1*]
 
-While *ROS1* achieved significant success, the evolving robotics landscape highlighted several limitations in its design, including:
+While *ROS 1* achieved significant success, the evolving robotics landscape highlighted several limitations in its design, including:
 
     / Multi-robot systems: Struggled with decentralized communication and discovery in large or dynamic networks.
     / Real-time control: Lacked native support for real-time performance requirements.
@@ -75,16 +77,16 @@ While *ROS1* achieved significant success, the evolving robotics landscape highl
 
     ---
 
-    #success[*ROS2* Overview]
+    #success[*ROS 2* Overview]
 
-    *ROS2* was designed from scratch to overcome the limitations of *ROS1*, delivering a more robust, secure, and adaptable platform. It supports a wide range of applications, from research prototypes to industrial and commercial systems.
+    *ROS 2* was designed from scratch to overcome the limitations of *ROS 1*, delivering a more robust, secure, and adaptable platform. It supports a wide range of applications, from research prototypes to industrial and commercial systems.
 
     ---
 
-    / Enhanced Multi-Robot Support: Enables decentralized communication and discovery, addressing *ROS1*'s challenges with dynamic, large-scale robot networks.
+    / Enhanced Multi-Robot Support: Enables decentralized communication and discovery, addressing *ROS 1*'s challenges with dynamic, large-scale robot networks.
     / Real-Time Capabilities: Provides native support for real-time control, making it suitable for time-critical robotic applications.
     / Improved Security: Incorporates robust security features to meet the needs of commercial and industrial deployments.
-    / Resource Efficiency: Optimized for resource-constrained platforms, such as embedded systems, unlike the heavier *ROS1*.
+    / Resource Efficiency: Optimized for resource-constrained platforms, such as embedded systems, unlike the heavier *ROS 1*.
     / Network Reliability: Eliminates the single point of failure by removing dependency on a single master node, improving system resilience.
 
     ---
@@ -118,9 +120,9 @@ While *ROS1* achieved significant success, the evolving robotics landscape highl
 
         ---
 
-        #notify[*Introducing ROS2 Humble Hawksbill*]
+        #notify[*Introducing ROS 2 Humble Hawksbill*]
 
-        *ROS2* *Humble Hawksbill*, the eighth major release of *ROS2*, was officially launched on May 23, 2022. It marks a key milestone in the *ROS2* ecosystem, enhancing previous versions with new features and improvements.
+        *ROS 2* *Humble Hawksbill*, the eighth major release of *ROS 2*, was officially launched on May 23, 2022. It marks a key milestone in the *ROS 2* ecosystem, enhancing previous versions with new features and improvements.
 
         ---
 
@@ -134,7 +136,7 @@ While *ROS1* achieved significant success, the evolving robotics landscape highl
 
          *Improvements in Humble*
 
-        - ROSBag Enhancements 
+        - ROSBag Enhancements
         - Performance and Stability Gains
         - Enhanced Documentation
         - Developer Ergonomics
