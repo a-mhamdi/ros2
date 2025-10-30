@@ -4,15 +4,17 @@
 
 ---
 
-== What is a ROS2 Node?
+== What is a ROS 2 Node?
 
-A *ROS2* node is a fundamental computational unit in the Robot Operating System 2 that represents an executable process within a robotic system.
+A *ROS 2* node is a fundamental computational unit in the Robot Operating System 2 that represents an executable process within a robotic system.
 
 === Core Components
 
 - Written in C++ or Python
 - Uses `rclcpp` (C++) or `rclpy` (Python) client libraries
 - Supports multiple communication patterns
+
+---
 
 === Types of Nodes
 
@@ -24,6 +26,8 @@ A *ROS2* node is a fundamental computational unit in the Robot Operating System 
 - LIDAR node
 - IMU sensor node
 ]
+
+---
 
 ==== Actuator Nodes
 
@@ -93,26 +97,26 @@ ros2 service call /add_two_ints example_interfaces/srv/AddTwoInts "{a: 5, b: 3}"
 ---
 
 #exo("Theory", [
-    1. What is a *ROS2* node?  
-    2. What is the difference between a topic and a service in *ROS2*?  
+    1. What is a *ROS 2* node?
+    2. What is the difference between a topic and a service in *ROS 2*?
     3. Give an example use case for a topic and one for a service.
     ])
 
 ---
 
 #solution[
-    1. A *ROS2* node is a fundamental process that performs computation in a *ROS2* system. Each node is an independent executable that can communicate with other nodes using topics, services, and actions.
+    1. A *ROS 2* node is a fundamental process that performs computation in a *ROS 2* system. Each node is an independent executable that can communicate with other nodes using topics, services, and actions.
 
-    2. A topic in *ROS2* is used for unidirectional, asynchronous, many-to-many communication (publish/subscribe), suitable for streaming data like sensor readings. A service is used for synchronous, two-way communication (request/response), suitable for tasks that require a reply, like resetting a simulation.
+    2. A topic in *ROS 2* is used for unidirectional, asynchronous, many-to-many communication (publish/subscribe), suitable for streaming data like sensor readings. A service is used for synchronous, two-way communication (request/response), suitable for tasks that require a reply, like resetting a simulation.
 
-    3. / Example use case for a topic: Publishing sensor data from a LIDAR to be consumed by multiple nodes.  
+    3. / Example use case for a topic: Publishing sensor data from a LIDAR to be consumed by multiple nodes.
     / Example use case for a service: A node requests another node to reset the simulation environment and waits for confirmation.
 ]
 
 ---
 
 #exo("Practical", [
-    4. Write the command to list all active nodes in a running *ROS2* system.
+    4. Write the command to list all active nodes in a running *ROS 2* system.
     5. Suppose you have a node publishing to the topic `/chatter`. Write the command to echo messages from this topic.
     6. What is the command to call a service named `/reset_simulation` of type `std_srvs/srv/Empty`?
     ])
@@ -144,7 +148,7 @@ ros2 service call /add_two_ints example_interfaces/srv/AddTwoInts "{a: 5, b: 3}"
 ros2 pkg create --build-type ament_python <package_name>
 ```
 
-This command creates a new *ROS2* package with the specified name, using the `ament_python` build type. The generated package structure will look like this:
+This command creates a new *ROS 2* package with the specified name, using the `ament_python` build type. The generated package structure will look like this:
 
 ---
 
@@ -175,40 +179,40 @@ This command creates a new *ROS2* package with the specified name, using the `am
 
 ---
 
-The `package.xml` file is a package manifest for *ROS2* that describes the package. It's written in *XML* and includes key information like:
+The `package.xml` file is a package manifest for *ROS 2* that describes the package. It's written in *XML* and includes key information like:
 
 - *Metadata:* The package's name, version, a description, maintainer information, and license.
 - *Dependencies:* Other packages required for the current package to build and run.
 - *Build System Info:* Details on the build type, such as `ament_python`.
-- *Export Tags:* Extra information for the *ROS2* build system.
+- *Export Tags:* Extra information for the *ROS 2* build system.
 
-Essentially, this file is how *ROS2* manages dependencies and compiles our package.
+Essentially, this file is how *ROS 2* manages dependencies and compiles our package.
 
 To install the required dependencies, we need to navigate to the package directory and run:
 ```bash
-rosdep install -i --from-path src/<package_name> --rosdistro humble -y   
+rosdep install -i --from-path src/<package_name> --rosdistro humble -y
 ```
 
 #align(center)[#image("../imgs/pkg_xml.png", width: 70%)]
 
 ---
 
-The `setup.py` file is a *Python* script that provides instructions for installing a *ROS2* package. It includes:
+The `setup.py` file is a *Python* script that provides instructions for installing a *ROS 2* package. It includes:
 
 - *Metadata:* Package details such as the name, version, and author, which are often sourced from package.xml.
 - *Dependencies:* The required Python packages for the project.
-- *Entry Points:* Specifies console scripts that define *ROS2* nodes, allowing them to be run as executable commands.
+- *Entry Points:* Specifies console scripts that define *ROS 2* nodes, allowing them to be run as executable commands.
 - *Data Files:* Information on any extra files, like launch files or configurations, that need to be installed.
 - *Package Discovery:* Instructions for setuptools on which *Python* packages to include.
 
-This file uses a standard *Python* packaging mechanism to work with the ament build system, making it possible to install and run our *Python* nodes as *ROS2* executables.
+This file uses a standard *Python* packaging mechanism to work with the ament build system, making it possible to install and run our *Python* nodes as *ROS 2* executables.
 
 #align(center)[#image("../imgs/setup_py.png", width: 70%)]
 
 ---
 
 #info[Directories]
-/ `resource/<package_name>`: Contains a marker file _(usually empty)_ that helps *ROS2* identify this as a package
+/ `resource/<package_name>`: Contains a marker file _(usually empty)_ that helps *ROS 2* identify this as a package
 / `test/`: Contains basic test files:
 / `test_copyright.py`: Checks for proper copyright headers
 / `test_flake8.py`: Runs `flake8` linting
@@ -225,7 +229,7 @@ This file uses a standard *Python* packaging mechanism to work with the ament bu
 ---
 
 #exo("Mini Code (Python, minimal)", [
-    7. Fill in the blanks to create a simple *ROS2* publisher node in Python:
+    7. Fill in the blanks to create a simple *ROS 2* publisher node in Python:
     ])
 
 ```python
@@ -272,7 +276,7 @@ class MinimalPublisher(Node):
 
     def timer_callback(self):
         msg = String()
-        msg.data = 'Hello, ROS2!'
+        msg.data = 'Hello, ROS 2!'
         self.publisher_.publish(msg)
         self.get_logger().info(f'Publishing: "{msg.data}"')
 
