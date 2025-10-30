@@ -1,12 +1,12 @@
 #import "Class.typ": *
 #import "Timeline.typ": tml
 
-#set document(keywords: ("ROS2", "Python", "C++", "GNU-Bash", "Typst"), date: auto)
+#set document(keywords: ("ROS 2", "Python", "C++", "GNU-Bash", "Typst"), date: auto)
 
 #show: ieee.with(
-  title: [#text(smallcaps("ROS2 Lab Report Delivery Tips"))], // ROS2
+  title: [#text(smallcaps("ROS 2 Lab Report Delivery Tips"))], // ROS 2
   abstract: [
-		We outline a few rules to adhere to in order to properly prepare your labs. The main programming languages you are going to use to implement some control algorithms in *ROS2* are: Python, C#super[++] and shell scripting using GNU Bash. It is preferable to write your lab reports in Typst, given the provided files.
+		We outline a few rules to adhere to in order to properly prepare your labs. The main programming languages you are going to use to implement some control algorithms in *ROS 2* are: Python, C#super[++] and shell scripting using GNU Bash. It is preferable to write your lab reports in Typst, given the provided files.
   ],
   authors:
   (
@@ -18,7 +18,7 @@
       profile: "a-mhamdi"
     ),
   ),
-  index-terms: ("ROS2", "Python", text[C#super[++]], "GNU-Bash", "Typst"),
+  index-terms: ("ROS 2", "Python", text[C#super[++]], "GNU-Bash", "Typst"),
   bibliography-file: "Biblio.bib",
 )
 
