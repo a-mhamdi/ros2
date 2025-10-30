@@ -173,7 +173,7 @@
         if "email" in author [
           \ #link("mailto:" + author.email)[#emph(author.email)]
         ]
-        if "profile" in author [ 
+        if "profile" in author [
           \ #link("https://www.github.com/" + author.profile)[#octique-inline("mark-github") #emph(author.profile)]
         ]
       }))
@@ -185,14 +185,11 @@
   }
   v(40pt, weak: true)
 
-	
-	
-
   // Start two column mode and configure paragraph properties.
 
   show: columns.with(2, gutter: 12pt)
   //set page(columns: 2)
-    
+
   set par(justify: true, spacing: 0.65em)
 
   // Display abstract and index terms.
@@ -209,7 +206,6 @@
   // Display the paper s contents.
   body
 
-
   // Display bibliography.
   if bibliography-file != none {
     show bibliography: set text(8pt)
@@ -222,7 +218,7 @@
 #let c = counter("exo")
 #let exo(tlt, txt) = block[
   #c.step()
-  #rect(fill: red, radius: 5pt)[*Task #context c.display(): #tlt *] 
+  #rect(fill: red, radius: 5pt)[*Task #context c.display(): #tlt *]
   #rect(fill: luma(221))[#txt]
 ]
 
@@ -254,8 +250,8 @@
 	#image("Images/reminder.png", width: 70%)
 	#rect[*#text(smallcaps("In each document, you have to insert well annotated screenshots of your code after being executed."))*]
 	]
-	
-/* TEMPLATE 
+
+/* TEMPLATE
 #exo[Title][Content.]
 
 ```python

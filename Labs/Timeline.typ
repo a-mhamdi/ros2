@@ -1,4 +1,4 @@
-#import "@preview/timeliney:0.3.0"
+#import "@preview/timeliney:0.4.0"
 
 #import timeliney: *
 
@@ -6,7 +6,7 @@
 #let tml = (
 timeliney.timeline(
   show-grid: true,
-  {     
+  {
     headerline(group(([*Sept.*], 5)), group(([*Oct.*], 5)), group(([*Nov.*], 5)), group(([*Dec.*], 3)))
     headerline(
       group(..range(5).map(n => strong("W" + str(n + 1)))),
@@ -15,7 +15,7 @@ timeliney.timeline(
       group(..range(3).map(n => strong("W" + str(n + 1)))),
 
     )
-  
+
     taskgroup(title: [*Lab \#1*], {
       task(text(olive)[_Develop & Code_], (2, 5), style: (stroke: 2pt + olive))
       task(text(maroon)[_Review & Update_], (4, 5), style: (stroke: 2pt + maroon))
