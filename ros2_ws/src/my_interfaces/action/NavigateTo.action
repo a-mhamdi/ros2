@@ -1,0 +1,13 @@
+# Goal
+geometry_msgs/Point target_position
+float64 max_velocity
+---
+# Result
+bool success
+string message
+float64 final_distance
+---
+# Feedback
+geometry_msgs/Point current_position
+float64 progress_percentage
+float64 remaining_distance

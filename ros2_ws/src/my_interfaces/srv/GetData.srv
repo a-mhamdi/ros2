@@ -1,0 +1,7 @@
+# Request
+string sensor_id
+float64 timeout_seconds
+---
+# Response
+bool success
+string message
