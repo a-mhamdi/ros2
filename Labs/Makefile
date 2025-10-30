@@ -3,8 +3,7 @@ EXCLUDE := Class.typ Timeline.typ
 
 FILES := $(filter-out $(EXCLUDE), $(DIR))
 
-typst := ${HOME}/appware/apps/bin/typst 
+typst := typst
 
-task: 
+task:
 	$(foreach file,$(FILES),${typst} compile --root ../ $(file);)
-
