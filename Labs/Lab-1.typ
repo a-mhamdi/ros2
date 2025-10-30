@@ -1,12 +1,12 @@
 #import "Class.typ": *
 
 #show: ieee.with(
-  title: [#text(smallcaps("ROS2 Lab #1: Getting Started Guide"))],
- 
+  title: [#text(smallcaps("ROS 2 Lab #1: Getting Started Guide"))],
+
   abstract: [
-    This guide introduces the fundamentals of *ROS2* (Robot Operating System 2) using the TurtleSim simulator. TurtleSim is a simple 2D simulator that helps beginners understand core *ROS2* concepts without the complexity of real hardware.
+    This guide introduces the fundamentals of *ROS 2* (Robot Operating System 2) using the TurtleSim simulator. TurtleSim is a simple 2D simulator that helps beginners understand core *ROS 2* concepts without the complexity of real hardware.
   ],
-  
+
   authors:
   (
     (
@@ -46,19 +46,19 @@ echo $SHELL
 ```
 This prints the path to the current shell executable (`bash`, `zsh`, etc.). Different shells may require different setup procedures, so this information is important for proper configuration.
 
-== Sourcing ROS2 Installation
+== Sourcing ROS 2 Installation
 
-Add ROS2 commands and environment variables to the current terminal session:
+Add ROS 2 commands and environment variables to the current terminal session:
 ```bash
 source /opt/ros/humble/setup.bash
 ```
-This step is essential as *ROS2* commands won't be available without sourcing. The sourcing must be done in every new terminal session (each new terminal needs: `source /opt/ros/humble/setup.bash`), or we can add this line to our shell's configuration file (`.bashrc`, `.zshrc`) to make it automatic.
+This step is essential as *ROS 2* commands won't be available without sourcing. The sourcing must be done in every new terminal session (each new terminal needs: `source /opt/ros/humble/setup.bash`), or we can add this line to our shell's configuration file (`.bashrc`, `.zshrc`) to make it automatic.
 
-= Running Our First ROS2 Node
+= Running Our First ROS 2 Node
 
-#text(style: "italic")[Reminder: In any new terminal, run `source /opt/ros/humble/setup.bash` before ROS2 commands.]
+#text(style: "italic")[Reminder: In any new terminal, run `source /opt/ros/humble/setup.bash` before ROS 2 commands.]
 
-A *node* is a fundamental unit of computation. Each node is a separate process that performs a specific task. Nodes communicate with each other through topics, services, and actions. The command structure follows the pattern: 
+A *node* is a fundamental unit of computation. Each node is a separate process that performs a specific task. Nodes communicate with each other through topics, services, and actions. The command structure follows the pattern:
 ```bash
 ros2 run <package_name> <executable_name>
 ```
@@ -74,13 +74,13 @@ Let’s launch the *TurtleSim* simulator:
 ```bash
 ros2 run turtlesim turtlesim_node
 ```
-This command opens a blue window with a turtle in the center. 
+This command opens a blue window with a turtle in the center.
 
 = Understanding Topics and Communication
 
 == Listing Active Topics
 
-*Topics* are named communication channels where nodes can publish _(send)_ or subscribe _(receive)_ messages. 
+*Topics* are named communication channels where nodes can publish _(send)_ or subscribe _(receive)_ messages.
 
 Display all currently active topics with their message types:
 ```bash
@@ -88,7 +88,7 @@ ros2 topic list -t
 ```
 The `-t` flag shows the message type for each topic. Expected output includes topics such as:
 - `/turtle1/cmd_vel` [geometry_msgs/msg/Twist]
-- `/turtle1/color_sensor` [turtlesim/msg/Color]  
+- `/turtle1/color_sensor` [turtlesim/msg/Color]
 - `/turtle1/pose` [turtlesim/msg/Pose]
 
 == Inspecting Message Structure
@@ -97,13 +97,13 @@ To understand the data structure of messages used in topics, we can inspect a sp
 ```bash
 ros2 interface show geometry_msgs/msg/Twist
 ```
-The Twist message contains linear and angular velocity components for 3D space. 
+The Twist message contains linear and angular velocity components for 3D space.
 ```bash
-geometry_msgs/Vector3 linear
+Vector3 linear
     float64 x
-    float64 y  
+    float64 y
     float64 z
-geometry_msgs/Vector3 angular
+Vector3 angular
     float64 x
     float64 y
     float64 z
@@ -112,7 +112,7 @@ For the 2D turtle, we primarily use `linear.x` _(forward/backward)_ and `angular
 
 = Publishing Messages
 
-#text(style: "italic")[Reminder: In any new terminal, run `source /opt/ros/humble/setup.bash` before ROS2 commands.]
+#text(style: "italic")[Reminder: In any new terminal, run `source /opt/ros/humble/setup.bash` before ROS 2 commands.]
 
 == Single Movement Command
 
@@ -134,7 +134,7 @@ Now, we want to publish velocity commands continuously to create circular motion
 ros2 topic pub -r 1 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 1., y: 0., z: 0.}, angular: {x: 0., y: 0., z: .7}}"
 ```
 The key parameters are:
-- `-r 1`: Publish at a 1 Hz _(i.e., 1 message per sec)_
+- `-r 1`: Publish at a 1 Hz rate _(i.e., 1 message per sec)_
 - `linear: {x: 1.}`: Move forward at 1 unit/sec
 - `angular: {z: .7}`: Rotate at 0.7 radians/sec
 
@@ -142,7 +142,7 @@ As it can be observed, the combination of forward motion and rotation creates ci
 
 = Monitoring Communication
 
-In *ROS2*, it is crucial to monitor messages being published on a topic in real-time. This can be done using the `ros2 topic echo` command:
+In *ROS 2*, it is crucial to monitor messages being published on a topic in real-time. This can be done using the `ros2 topic echo` command:
 ```bash
 ros2 topic echo /turtle1/cmd_vel
 ```
@@ -150,7 +150,7 @@ This debugging tool displays all messages on the specified topic. When used alon
 
 = Interactive Control
 
-#text(style: "italic")[Reminder: In any new terminal, run `source /opt/ros/humble/setup.bash` before ROS2 commands.]
+#text(style: "italic")[Reminder: In any new terminal, run `source /opt/ros/humble/setup.bash` before ROS 2 commands.]
 
 == Direct Turtle Teleop
 
@@ -168,23 +168,47 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args --remap cmd_vel:
 ```
 The command components are:
 - `teleop_twist_keyboard`: Package and executable name
-- `--ros-args --remap`: ROS2 argument for topic remapping
+- `--ros-args --remap`: ROS 2 argument for topic remapping
 - `cmd_vel:=/turtle1/cmd_vel`: Maps the default `cmd_vel` topic to `/turtle1/cmd_vel`
+
+= Services
+
+Services are a way for nodes to request specific actions from other nodes. They are typically used for short-lived operations that require a response. It is possible to check the list of available services using the `ros2 service list` command. The type of a particular service can be determined using the `ros2 service type <service_name>` command. The command to call the service is `ros2 service call <service_name> <service_type> <arguments>`.
+
+== Absolute Position Control
+
+It allows a node to set the exact position of another node. This is useful for precise movements or when a node needs to know its exact location. The command to call the service is `ros2 service call <service_name> <service_type> <arguments>`.
+
+For instance, to teleport the turtle to the position (5.0, 5.0) with an orientation of 0.0 radians, you can use the following command:
+
+```bash
+ros2 service call /turtle1/teleport_absolute turtlesim/srv/TeleportAbsolute "{x: 5.0, y: 5.0, theta: 0.0}"
+```
+
+== Relative Position Control
+
+It allows a node to move another node relative to its current position. This is useful for incremental movements or when a node needs to move a certain distance in a specific direction.
+
+For instance, to move the turtle forward by 2.0 units and rotate it by -2.0 radians, you can use the following command:
+
+```bash
+ros2 service call /turtle1/teleport_relative turtlesim/srv/TeleportRelative "{linear: 2.0, angular: -2.0}"
+```
 
 = System Visualization
 
-#text(style: "italic")[Reminder: In any new terminal, run `source /opt/ros/humble/setup.bash` before ROS2 commands.]
+#text(style: "italic")[Reminder: In any new terminal, run `source /opt/ros/humble/setup.bash` before ROS 2 commands.]
 
 There is a tool to visualize the relationships between nodes and topics, called `rqt_graph`:
 ```bash
-ros2 run rqt_graph rqt_graph
+rqt_graph
 ```
 This opens a graphical tool displaying:
 - Nodes as ovals
-- Topics as rectangles  
+- Topics as rectangles
 - Arrows showing communication direction
 
-The visualization helps understand data flow in *ROS2* systems and is invaluable for debugging communication issues in complex robotic applications.
+The visualization helps understand data flow in *ROS 2* systems and is invaluable for debugging communication issues in complex robotic applications.
 
 #figure(
   image("Images/rqt-graph.png", width: 100%, fit: "contain")
@@ -220,17 +244,17 @@ The visualization helps understand data flow in *ROS2* systems and is invaluable
   stroke: 1pt,
   [*Command*], [*Purpose*],
   [`which $SHELL`], [Check current shell],
-  [`source /opt/ros/humble/setup.bash`], [Source ROS2 environment],
-  [`ros2 run <package> <executable>`], [Run a ROS2 node],
+  [`source /opt/ros/humble/setup.bash`], [Source ROS 2 environment],
+  [`ros2 run <package> <executable>`], [Run a ROS 2 node],
   [`ros2 topic list -t`], [List active topics with types],
   [`ros2 interface show <msg_type>`], [Show message structure],
   [`ros2 topic pub <topic> <type> <data>`], [Publish to topic],
   [`ros2 topic echo <topic>`], [Monitor topic messages],
-  [`ros2 run rqt_graph rqt_graph`], [Visualize system graph]
+  [`rqt_graph`], [Visualize system graph]
 ))
 
-#exo[Fibonacci Spiral][Implement a *ROS2* application using the `turtlesim` package to visualize the Fibonacci spiral. The turtle should trace the golden spiral pattern governed by the mathematical equation:
-[$ r = a  Phi^{theta / (2\pi)} $]
+#exo[Fibonacci Spiral][Implement a *ROS 2* application using the `turtlesim` package to visualize the Fibonacci spiral. The turtle should trace the golden spiral pattern governed by the mathematical equation:
+$ r = a times Phi^(theta / (2 pi)) $
 where:
 / $r$: radial distance from the origin,
 / $a$: a constant that controls the size of the spiral,
@@ -238,9 +262,7 @@ where:
 / $theta$: the angle in radians.
 ]
 
-#test[Use smooth incremental angle steps for continuous curve visualization. You can choose $theta$ ranging from $0$ to $pi/ 4$ with small increments.]
-
-The resulting spiral should smoothly transition as the turtle moves, creating a visually appealing pattern that looks like the image shown below.
+#test[You can choose $theta$ ranging from $0$ to $pi/ 4$ with small increments. The resulting spiral should smoothly transition as the turtle moves, creating a visually appealing pattern that looks like the image shown hereafter.]
 
 #figure(
   image("Images/fibonacci_spiral.png", width:100%)
