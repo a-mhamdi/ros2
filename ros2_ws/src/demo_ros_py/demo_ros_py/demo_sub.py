@@ -1,5 +1,6 @@
 import rclpy
 from rclpy.node import Node
+from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy, DurabilityPolicy
 
 from std_msgs.msg import String
 
@@ -10,11 +11,17 @@ class DemoSub(Node):
         Initialize a DemoSub node, which subscribes to the 'demo_topic'.
         """
         super().__init__("demo_sub")
+
+        # Define `MATCHING` QoS profile
+        qos_profile = QoSProfile(
+            reliability=ReliabilityPolicy.RELIABLE,  # Reliable communication
+            history=HistoryPolicy.KEEP_LAST,  # Keep last message
+            depth=10,  # Keep last 10 messages
+            durability=DurabilityPolicy.TRANSIENT_LOCAL,  # Keep messages until read
+        )
+
         self.subscription_ = self.create_subscription(
-            String,
-            "demo_topic",
-            self.listener_callback,
-            10
+            String, "demo_topic", self.listener_callback, qos_profile
         )
 
     def listener_callback(self, msg: String):
