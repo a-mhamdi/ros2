@@ -39,13 +39,14 @@
 
 #show: metropolis-theme.with(
   aspect-ratio: "16-9",
-  footer: self => "ROS2 | A. Mhamdi",
+  footer: self => [#box(image("imgs/logos/ROS-icon.svg", height: 0.8em)) ROS 2 | A. Mhamdi],
   config-info(
     title: [Robot Operating Systems],
     subtitle: [Robot Software Development],
     author: [Abdelbacet Mhamdi],
     date: datetime.today(),
     institution: [MT \@ ISET Bizerte],
+    logo: image("imgs/logos/ROS.svg"),
   ),
 )
 
@@ -58,7 +59,9 @@
 
 #include "parts/foundations.typ"            // ROS2 Foundations
 #include "parts/nodes-com.typ"              // Nodes and Communication
-// #include "parts/interface-dev.typ"          // Custom Interface Development
+#include "parts/interface-dev.typ"          // Custom Interface Development
+// #include "parts/config-launch.typ"          // Launch Files
+// #include "parts/rviz-gazebo.typ"            // RVIZ and Gazebo
 // #include "parts/nav-perception.typ"         // Navigation and Perception
 // #include "parts/adv-ctl.typ"                // Advanced Control Systems
 // #include "parts/prod-deployment.typ"        // Production Deployment Strategies
@@ -72,7 +75,7 @@
 // #show: appendix
 
 // Bibliography
-#set heading(numbering: none, outlined: false) 
+#set heading(numbering: none, outlined: false)
 = Bibliography
 
 ---
