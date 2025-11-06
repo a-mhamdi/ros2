@@ -7,7 +7,7 @@ from my_interfaces.srv import GetData
 class SensorNode(Node):
     def __init__(self):
         super().__init__("sensor_node")
-        self.publisher_ = self.create_publisher(SensorData, "sensor_data", 10)
+        self.publisher_ = self.create_publisher(SensorData, "sensor_topic", 10)
         self.timer_ = self.create_timer(1.0, self.publish_sensor_data)
         self.get_logger().info("Sensor node started")
 

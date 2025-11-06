@@ -23,7 +23,7 @@ setup(
     },
     entry_points={
         "console_scripts": [
-            "my_py_chatter = demo_interfaces_py.script:pub",
+            "talker = demo_interfaces_py.pub:pub",
         ],
     },
 )
