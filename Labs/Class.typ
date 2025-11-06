@@ -1,6 +1,7 @@
 // This function gets your whole document as its `body` and formats
 // it as an article in the style of the IEEE.
 
+#import "@preview/gentle-clues:1.2.0": *
 #import "@preview/octique:0.1.1": *
 
 #import "@preview/codly:1.3.0": *
