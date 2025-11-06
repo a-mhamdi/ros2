@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>robot</name>
+  <name>my_robot</name>
   <version>0.0.1</version>
-  <description>Getting started w/ ros:humble</description>
+  <description>Getting started w/ ROS 2:Humble</description>
   <maintainer email="a_mhamdi@outlook.com">A. Mhamdi</maintainer>
   <license>MIT</license>
 
