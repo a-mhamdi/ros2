@@ -31,14 +31,14 @@ class DemoPub(Node):
         """
         Callback function when the timer goes off.
 
-        Publishes a message with the contents 'Hello, ROS2!' to the 'demo_topic'
+        Publishes a message with the contents 'Hello, ROS 2!' to the 'demo_topic'
         and logs the message at the info level.
 
         :param self: The instance of the class.
         :type self: rclpy.node.Node
         """
         msg = String()
-        msg.data = f"Hello, ROS2! (#{self.i})"
+        msg.data = f"Hello, ROS 2! (#{self.i})"
         self.get_logger().info(f"Publishing: {msg.data}")
         self.publisher_.publish(msg)
         self.i += 1
