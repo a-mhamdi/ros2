@@ -7,4 +7,4 @@ If we let the `talker` node publish to the topic `listen_talk`:
 ros2 run listen_talk_pkg talker
 ```
 we get the results in the preview below.
-![TMUX](tmux_preview.png)
+![PREVIEW](python_talks_to_itself.png)
