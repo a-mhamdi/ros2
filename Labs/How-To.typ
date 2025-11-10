@@ -95,9 +95,23 @@ from rclpy.node import Node
 You can leverage those features using the app's intuitive interface and the provided template at the url #highlight[#link("https://typst.app/universe/package/ailab-isetbz")[https://typst.app/universe/package/ailab-isetbz]], as shown in @fig:typstapp. No installation is required; however, you may need to sign up to use the online editor. Keep an eye on your project size. Do not exceed $200$MB. A fully fledged documentation on the usage of Typst is available at #highlight[#link("https://typst.app/docs/")[https://typst.app/docs/]].
 
 #figure(
-	image("Images/ailab-isetbz.png", width: 100%),
+	image("Images/ailab-isetbz.png", width: 90%),
 	caption: [Typst app],
 ) <fig:typstapp>
+
+Kindly submit your lab reports in PDF format. Before the scheduled lab period concludes, ensure you have reviewed your files with your instructor. 
+
+#figure(
+	image("Images/SCAN-ME.png", width: 40%),
+	caption: [Submission portal],
+) <fig:submission>
+
+Before submitting your lab report, verify:
+
+- Code builds and runs (include exact commands)
+- Console output and screenshots accompany each task
+- Public repository link is provided
+- Document uses the Typst template with proper captions for figures/tables.
 
 = GitHub
 Share your code on GitHub. It's a fantastic way to foster a supportive coding community while gaining exposure to different coding styles and techniques @Guthals2023 @Bell2015 @Tsitoara2020.
@@ -106,7 +120,7 @@ Share your code on GitHub. It's a fantastic way to foster a supportive coding co
 You may find the following links useful:
 - GitHub Repository _(@fig:github)_ \ #highlight[#link("https://github.com/a-mhamdi/ros2")[https://github.com/a-mhamdi/ros2]]
 #figure(
-	image("Images/github-ros2.png", width: 100%),
+	image("Images/github-ros2.png", width: 90%),
 	caption: [GitHub repository],
 ) <fig:github>
 
@@ -114,18 +128,9 @@ You may find the following links useful:
 - Docker Image _(@fig:docker)_ \ #highlight[#link("hub.docker.com/repository/docker/abmhamdi/ros2/general")[hub.docker.com/repository/docker/abmhamdi/ros2]]
 
 #figure(
-	image("Images/docker-ros2.png", width: 100%),
+	image("Images/docker-ros2.png", width: 90%),
 	caption: [Docker image],
 ) <fig:docker>
-
-= Submission Checklist
-
-Before submitting your lab report, verify:
-
-- Code builds and runs (include exact commands)
-- Console output and screenshots accompany each task
-- Public repository link is provided
-- Document uses the Typst template with proper captions for figures/tables
 
 = Timeline
 
