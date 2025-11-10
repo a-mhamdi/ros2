@@ -1,0 +1,5 @@
+smart_controller:
+  ros__parameters:
+    target_x: 9.0
+    target_y: 9.0
+    distance_threshold: 0.1
