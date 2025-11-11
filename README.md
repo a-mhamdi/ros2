@@ -8,7 +8,7 @@
 To begin, you need to source the ROS 2 installation and the current shared package directory. This command sets up your environment to use the *ROS2* tools:
 
 ```bash
-source install/setup.bash
+source /opt/ros/humble/setup.bash
 ```
 
 Once your environment is set up, you can build a specific package by using the `colcon` build command and specifying the package name:
