@@ -1,6 +1,5 @@
 #import "Class.typ": *
 
-
 #show: ieee.with(
   title: [#text(smallcaps("Lab #4: SLAM and Nav2 (ROS 2 Humble)"))],
   /*
