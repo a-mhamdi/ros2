@@ -15,7 +15,7 @@ To see a basic example in action, simply run the `turtlesim_node` by executing t
 Alternatively, you can use `docker-compose` to manage the containers. This is especially useful for more complex setups with multiple services. To run the same example with Docker Compose, use this command:
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 This will build and run the necessary containers as defined in the [docker-compose.yml](https://raw.githubusercontent.com/a-mhamdi/ros2/refs/heads/main/docker-compose.yml) file.
