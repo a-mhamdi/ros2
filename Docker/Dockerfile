@@ -1,7 +1,7 @@
 FROM osrf/ros:humble-desktop-full
 
 RUN apt-get update && apt-get install -y \
-    ros-humble-gazebo-ros && \
+    ros-humble-gazebo-ros tmux && \
     rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /ros2_ws
