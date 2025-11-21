@@ -1,17 +1,14 @@
 services:
-  ros2:
+  ros:
     image: abmhamdi/ros2
+    privileged: true
     network_mode: "host"
     devices:
       - /dev/dri
     environment:
       - DISPLAY=${DISPLAY}
       - QT_X11_NO_MITSHM=1
-      - QT_QPA_PLATFORM=xcb
-      - QT_QPA_PLATFORM_PLUGIN_PATH=/usr/lib/x86_64-linux-gnu/qt5/plugins
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
-      - ${HOME}/.Xauthority:/root/.Xauthority:rw
     stdin_open: true
     tty: true
-    privileged: true
