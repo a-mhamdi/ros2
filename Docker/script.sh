@@ -10,4 +10,5 @@ docker run -it                                  \
     --env="DISPLAY"                             \
     --env="QT_X11_NO_MITSHM=1"                  \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
-    abmhamdi/ros2
+    abmhamdi/ros2 \
+    bash -c "ros2 run turtlesim turtlesim_node"  # launch ROS 2 `turtlesim` package
