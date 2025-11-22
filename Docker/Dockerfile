@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y \
     tmux && \
     rm -rf /var/lib/apt/lists/*
 
-# ----------- BEGIN CONF -----------
+# ----------- BEGIN CONF -----------
 RUN cat >> /root/.bashrc << 'EOF'
 # Source ROS 2 installation
 source /opt/ros/humble/setup.bash
