@@ -1,23 +1,20 @@
-# ROS2: Humble Hawksbill
-
-## Prerequisites
+# ROS 2: Humble Hawksbill
 
 > [!NOTE]
-> You can either follow the steps below for local installation or use the provided Docker image for a containerized environment.
+> You can either follow the steps detailed [here](https://docs.ros.org/en/humble/Installation.html) for local installation or use the provided `Docker` image for a containerized environment.
 
-To begin, you need to source the ROS 2 installation and the current shared package directory. This command sets up your environment to use the *ROS2* tools:
+<!--
+## Prerequisites
+
+To begin, you need to source the **ROS 2** installation and the current shared package directory. This command sets up your environment to use the **ROS 2** tools:
 
 ```bash
 source /opt/ros/humble/setup.bash
 ```
-
-Once your environment is set up, you can build a specific package by using the `colcon` build command and specifying the package name:
-
-```bash
-colcon build --packages-select <package_name>
-```
+-->
 
 ## Docker Setup
+
 Codes run on top of a `Docker` image, ensuring a consistent and reproducible environment. 
 
 > [!IMPORTANT]
@@ -30,11 +27,20 @@ To run the code, you will need to first pull the `Docker` image by running the f
 docker pull abmhamdi/ros2
 ```
 
-This may take a while, as it will download and install all necessary dependencies.
+This may take a while, as the image contains projects' source code, **ROS 2**, and all necessary system dependencies.
 
-## How to control the containers:
+## How to control the containers
 
 * ```docker compose up -d``` starts the containers in detached mode
+
+* ```docker compose exec -it ros2 bash``` opens an interactive `bash` session inside the `ros2` service
+
+Once your environment is set up, you can build a specific package by using the `colcon` build command and specifying the package name:
+
+```bash
+colcon build --packages-select <package_name>
+```
+
 * ```docker compose down``` stops and removes the containers
 
 ## License
