@@ -1,4 +1,4 @@
-# TIP: Suggested order to examine/study the folders
+# Suggested order to examine the folders
 
 To understand how everything fits together, it is best to look at the packages in this order:
 
