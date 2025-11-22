@@ -26,7 +26,7 @@ class PositionSubscriber(Node):
         if hasattr(self, 'previous_x'):
             dx = msg.x - self.previous_x
             dy = msg.y - self.previous_y
-            distance = math.sqrt(dx*dx + dy*dy)
+            distance = math.sqrt(dx**2 + dy**2)
             self.total_distance += distance
 
         self.previous_x = msg.x

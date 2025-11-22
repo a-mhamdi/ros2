@@ -164,7 +164,7 @@ This command creates a new *ROS 2* package with the specified name, using the `a
 │   ├── test_flake8.py
 │   └── test_pep257.py
 └── <package_name>/
-└── __init__.py
+    └── __init__.py
 ```
 
 #align(center)[#image("../imgs/project_struct.png", width: 60%)]
@@ -222,7 +222,7 @@ This file uses a standard *Python* packaging mechanism to work with the ament bu
 
 #align(center)[#image("../imgs/demo_ros_py.png", width: 70%)]
 
-#code("demo_ros_py", "ros2_ws/src/demo_ros_py")
+#code("ros2_ws/src/demo_ros_py")
 
 // #align(center)[#image("../../imgs/demo_ros_cpp.png", width: 70%)]
 

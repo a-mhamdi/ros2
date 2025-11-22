@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <robot name="simple_robot">
 
+	
+<link name="base_footprint" />
+
   <!-- Base Link -->
   <link name="base_link">
     <visual>
@@ -51,13 +54,7 @@
     </inertial>
   </link>
 
-  <!-- Left Wheel Joint -->
-  <joint name="left_wheel_joint" type="continuous">
-    <parent link="base_link"/>
-    <child link="left_wheel"/>
-    <origin xyz="0 0.16 0" rpy="0 0 0"/>
-    <axis xyz="0 1 0"/>
-  </joint>
+
 
   <!-- Right Wheel Link -->
   <link name="right_wheel">
@@ -83,13 +80,43 @@
                ixy="0.0" ixz="0.0" iyz="0.0"/>
     </inertial>
   </link>
+  
+  <link name="caster_wheel">
+  	<visual>
+  		<origin xyz="0 0 0" rpy="0 0 0"/>
+  		<geometry>
+  			<sphere radius="0.025" />
+  		</geometry>
+  	</visual>
+  </link>
+  
+  <joint name="base_joint" type="fixed">
+  	<parent link="base_footprint" />
+  	<child link="base_link" />
+  	<origin xyz="0 0 -0.5" rpy="0 0 0" />
+  </joint>
 
+  <!-- Left Wheel Joint -->
+  <joint name="left_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="left_wheel"/>
+    <origin xyz="0 0.16 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+  
   <!-- Right Wheel Joint -->
   <joint name="right_wheel_joint" type="continuous">
     <parent link="base_link"/>
     <child link="right_wheel"/>
     <origin xyz="0 -0.16 0" rpy="0 0 0"/>
     <axis xyz="0 1 0"/>
+  </joint>
+  
+  <!-- Caster Joint -->
+  <joint name="base_caster_joint" type="fixed">
+  	<parent link="base_link" />
+  	<child link="caster_wheel" />
+  	<origin xyz="-0.15 0 -0.025" rpy="0 0 0" />
   </joint>
 
   <!-- Gazebo-specific tags for materials -->

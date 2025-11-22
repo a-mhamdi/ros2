@@ -228,6 +228,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   source install/setup.bash
   ```
 
+  #code("ros2_ws/src/my_interfaces")
   ---
 
   *Verification:*
@@ -249,11 +250,13 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   from my_interfaces.srv import GetData
   from my_interfaces.action import NavigateTo
   ```
+  #code("ros2_ws/src/demo_interfaces_py")
   ```cpp
   #include "my_interfaces/msg/sensor_data.hpp"
   #include "my_interfaces/srv/get_data.hpp"
   #include "my_interfaces/action/navigate_to.hpp"
   ```
+  #code("ros2_ws/src/demo_interfaces_cpp")
   ---
   ```python
   # Publisher
@@ -370,12 +373,12 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   ros2 bag play recorded_bag
   ```
 
-  ---
-
+/*
   *Testing Strategies:*
   - Unit tests for interface generation
   - Integration tests for message flow
   - Performance tests for large messages
+*/
 
 == Summary
 
