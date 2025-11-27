@@ -30,7 +30,6 @@ This will build and run the necessary containers as defined in the [compose.yml]
 > ```yaml
 > environment:
 >   - DISPLAY=host.docker.internal:0
->   - QT_X11_NO_MITSHM=1
 > ```
 
 > [!WARNING]
