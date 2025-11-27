@@ -4,8 +4,8 @@
   title: [#text(smallcaps("ROS 2 Lab #2: Motion Control of Turtle"))],
 
   abstract: [
-    This lab establishes the foundation for building complex *ROS 2* applications through custom node development and inter-node communication patterns. It builds upon the fundamental concepts learned in Lab \#1. You will create your own *ROS 2* package, write custom nodes, and implement publisher-subscriber communication patterns. By the end of this lab, you will have a solid understanding of how to build *ROS 2* applications from scratch.
-  ],
+    This lab establishes the foundation for building complex *ROS 2* applications through custom node development and inter-node communication patterns. You will create your own *ROS 2* package, write custom nodes, and implement publisher-subscriber communication patterns.
+],
 
   authors:
   (
@@ -151,38 +151,13 @@ if __name__ == '__main__':
 Edit `setup.py` to include your executable:
 
 ```python
-import os
-from glob import glob
-from setuptools import setup
-
-package_name = 'turtle_controller'
-
-setup(
-    name=package_name,
-    version='0.0.0',
-    packages=[package_name],
-    data_files=[
-        ('share/ament_index/resource_index/packages',
-            ['resource/' + package_name]),
-        ('share/' + package_name, ['package.xml']),
-        (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
-    ],
-    install_requires=['setuptools'],
-    zip_safe=True,
-    maintainer='A. Mhamdi',
-    maintainer_email='a_mhamdi@outlook.com',
-    description='Turtle controller package',
-    license='Apache License 2.0',
-    tests_require=['pytest'],
-    entry_points={
-        'console_scripts': [
-            'velocity_publisher = turtle_controller.velocity_publisher:main',
-        ],
-    },
-)
+entry_points={
+'console_scripts': [
+    'velocity_publisher = turtle_controller.velocity_publisher:main',
+]}
 ```
 
-#exo[Position Monitor Subscriber][Create `position_subscriber.py` file where you write the code for the position subscriber node. Add the executable to your package executables list. Update `setup.py` to include the new executable.]
+#exo[Position Monitor Subscriber][Create `position_subscriber.py` file where you write the code for the position subscriber node. Update `setup.py` to include the new executable.]
 
 /*
 ```python
@@ -420,11 +395,6 @@ def generate_launch_description():
         ),
         Node(
             package='turtle_controller',
-            executable='position_subscriber',
-            name='position_monitor'
-        ),
-        Node(
-            package='turtle_controller',
             executable='smart_controller',
             name='smart_controller'
         )
@@ -447,7 +417,7 @@ data_files=[
 Run the launch file:
 
 ```bash
-ros2 launch turtle_controller turtle_lab.launch.py
+ros2 launch turtle_controller turtle_ctrl.launch.py
 ```
 
 = Summary

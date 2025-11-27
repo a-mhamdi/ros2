@@ -27,7 +27,7 @@
   index-terms: (),
 
   // The article's paper size. Also affects the margins.
-  paper-size: "us-letter",
+  paper-size: "a4",
 
   // The path to a bibliography file if you want to cite some external
   // works.
