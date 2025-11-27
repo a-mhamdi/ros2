@@ -15,26 +15,15 @@ class PositionSubscriber(Node):
             10
         )
 
-        self.previous_x = 0.0
-        self.previous_y = 0.0
-        self.total_distance = 0.0
-
         self.get_logger().info('Position Subscriber Node Started')
 
     def pose_callback(self, msg):
-        # Calculate distance traveled
-        if hasattr(self, 'previous_x'):
-            dx = msg.x - self.previous_x
-            dy = msg.y - self.previous_y
-            distance = math.sqrt(dx**2 + dy**2)
-            self.total_distance += distance
-
         self.previous_x = msg.x
         self.previous_y = msg.y
 
         self.get_logger().info(
             f'Position: x={msg.x:.2f}, y={msg.y:.2f}, '
-            f'theta={msg.theta:.2f}, distance={self.total_distance:.2f}'
+            f'Orientation: theta={msg.theta:.2f}'
         )
 
 def main(args=None):
