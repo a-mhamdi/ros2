@@ -1,11 +1,11 @@
-#import "@preview/touying:0.6.1": *
+#import "@preview/touying:0.7.4": *
 #import themes.metropolis: *
 #import "@preview/numbly:0.1.0": numbly
 #import "@preview/codly:1.3.0": *
-#import "@preview/codly-languages:0.1.8": *
-#import "@preview/cetz:0.3.4"
+#import "@preview/codly-languages:0.1.10": *
+#import "@preview/cetz:0.5.2"
 
-#import "@preview/theorion:0.3.2": *
+#import "@preview/theorion:0.6.0": *
 #import cosmos.clouds: *
 #show: show-theorion
 
