@@ -126,6 +126,7 @@ Remove a directory:
 rm -r project
 ```
 
+> [!WARNING]
 > Be careful with `rm`: removed files are normally not moved to a recycle bin.
 
 ## 4. Viewing Files
@@ -665,4 +666,71 @@ A typical shell scripting workflow is:
 7. Automate its execution
 ```
 
-> **Shell scripting isn't primarily about programming; it's about orchestrating existing programs.**
+> [!IMPORTANT]
+> **Shell** scripting isn't primarily about programming; it's about orchestrating existing programs.
+
+## 23. TMUX - Windows & Panes
+
+`tmux` allows us to keep multiple terminal sessions running inside a single terminal.
+
+> [!NOTE]
+> `Ctrl+b` is the `tmux` prefix. Most `tmux` shortcuts start with it.
+
+```text
+Session
+ ├── Window
+ │    ├── Pane
+ │    └── Pane
+ └── Window
+      └── Pane
+```
+### Windows
+
+Create a new window:
+
+```text
+Ctrl+b  c
+```
+
+Switch to the next window:
+
+```
+Ctrl+b  n
+```
+
+Switch to the previous window:
+
+```
+Ctrl+b  p
+```
+
+Switch directly to a window:
+
+```text
+Ctrl+b  0
+Ctrl+b  1
+Ctrl+b  2
+```
+
+### Panes
+
+Split vertically _(left/right)_:
+
+```text
+Ctrl+b  %
+```
+
+Split horizontally _(top/bottom)_:
+
+```text
+Ctrl+b  "
+```
+
+Move between panes:
+
+```text
+Ctrl+b  ←
+Ctrl+b  →
+Ctrl+b  ↑
+Ctrl+b  ↓
+```
