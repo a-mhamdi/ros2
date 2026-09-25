@@ -1,10 +1,8 @@
 # Introduction to Shell Scripting
 
-The **shell** provides a way to interact with the operating system, execute programs, combine commands, and automate repetitive tasks.
+A **shell** is a program that interprets commands and executes them. It provides a way to interact with the operating system, execute programs, combine commands, and automate repetitive tasks.
 
 ## 1. The Shell
-
-A **shell** is a program that interprets commands and executes them.
 
 Common shells include:
 
@@ -26,15 +24,13 @@ bash --version
 
 ## 2. Navigation
 
-### Print the current directory
-
 Show the current working directory.
 
 ```bash
 pwd
 ```
 
-### List files
+List files
 
 ```bash
 ls
@@ -52,16 +48,10 @@ Include hidden files:
 ls -la
 ```
 
-### Change directory
+Change directory
 
 ```bash
-cd directory
-```
-
-Go to the parent directory:
-
-```bash
-cd ..
+cd ~/Desktop
 ```
 
 Go to the home directory:
@@ -70,15 +60,40 @@ Go to the home directory:
 cd ~
 ```
 
+Go to the parent directory:
+
+```bash
+cd ..
+```
+
 ## 3. Files and Directories
 
-### Create a file
+Before creating or reading any file, move to the Desktop and make a folder to work in:
+
+```bash
+cd ~/Desktop
+mkdir shell-practice
+cd shell-practice
+```
+
+> [!NOTE]
+> All the files used in the rest of this guide will be created inside `shell-practice`.
+
+Create a file
 
 ```bash
 touch file.txt
 ```
 
-### Create a directory
+A few files are reused later on _(viewing, searching, redirection, text processing)_. Create them now, with a little content, so they exist *before* we read from them:
+
+```bash
+echo -e "line one\nline two\nERROR: something failed" > logfile.txt
+echo -e "Alice\nBob\nAlice" > names.txt
+echo -e "name,age\nAli,30\nSara,25" > data.csv
+```
+
+Create a directory
 
 ```bash
 mkdir project
@@ -90,7 +105,7 @@ Create nested directories:
 mkdir -p directory/subdirectory
 ```
 
-### Copy a file
+Copy a file
 
 ```bash
 cp file backup
@@ -102,7 +117,7 @@ Copy a directory:
 cp -r project project_backup
 ```
 
-### Move or rename a file
+Move or rename a file
 
 ```bash
 mv old.txt new.txt
@@ -114,7 +129,7 @@ Move a file:
 mv file.txt project/
 ```
 
-### Remove a file
+Remove a file
 
 ```bash
 rm file.txt
@@ -131,13 +146,13 @@ rm -r project
 
 ## 4. Viewing Files
 
-### Display a file
+Display a file
 
 ```bash
 cat file.txt
 ```
 
-### View a large file
+View a large file
 
 ```bash
 less logfile.txt
@@ -150,7 +165,7 @@ Useful keys inside `less`:
 * `/text` — search
 * `q` — quit
 
-### Display the beginning of a file
+Display the beginning of a file
 
 ```bash
 head file.txt
@@ -162,7 +177,7 @@ first 20 lines:
 head -n 20 file.txt
 ```
 
-### Display the end of a file
+Display the end of a file
 
 ```bash
 tail file.txt
@@ -177,7 +192,7 @@ tail -n 20 file.txt
 Follow a file as it changes:
 
 ```bash
-tail -f file.txt
+tail -f logfile.txt
 ```
 
 > This is particularly useful for **logs**.
@@ -311,13 +326,13 @@ ps | grep python
 Create a variable:
 
 ```bash
-name="Ali"
+NAME="Ali"
 ```
 
 Use the variable:
 
 ```bash
-echo "$name"
+echo "$NAME"
 ```
 
 Display an environment variable:
@@ -339,13 +354,13 @@ The `PATH` variable contains directories where the shell searches for executable
 The output of a command can be stored in a variable.
 
 ```bash
-current_dir=$(pwd)
+CURRENT_DIR=$(pwd)
 ```
 
 Then:
 
 ```bash
-echo "$current_dir"
+echo "$CURRENT_DIR"
 ```
 
 This is very useful when building scripts from several commands.
@@ -364,10 +379,10 @@ Convention:
 * `0` → success
 * Non-zero → failure
 
-For example:
+For example, a file that doesn't exist:
 
 ```bash
-ls existing_file.txt
+ls nonexistent_file.txt
 echo $?
 ```
 
@@ -467,10 +482,10 @@ represents all arguments.
 A script can ask the user for input.
 
 ```bash
-read name
+read NAME
 ```
 
-The value entered by the user is stored in `name`. A common pattern is:
+The value entered by the user is stored in `NAME`. A common pattern is:
 
 ```text
 display a message
@@ -617,7 +632,7 @@ cut -d ',' -f 1 data.csv
 The real power comes from combining tools:
 
 ```bash
-cat data.txt | grep "ERROR" | sort | uniq
+cat logfile.txt | grep "ERROR" | sort | uniq
 ```
 
 Each command performs a small operation, and the pipeline combines them into a larger operation.
