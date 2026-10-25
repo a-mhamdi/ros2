@@ -2,7 +2,15 @@ import marimo
 
 app = marimo.App()
 
-
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        r"""
+        [![Open in molab](https://marimo.io/molab-shield.svg)](https://molab.marimo.io/github/a-mhamdi/ros2/blob/main/Labs/py-onramp.py)
+        """
+    )
+    return
+    
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(
