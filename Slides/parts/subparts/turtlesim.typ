@@ -1,6 +1,7 @@
 #import "../../common.typ": *
 
 == A Practical Introduction
+#title-slide[Turtlesim][ROS 2 CLI Tools]
 
 *TurtleSim* is a beginner-friendly tool for learning *ROS 2* concepts through visual, interactive examples. This lightweight simulator offers a 2D environment where we control virtual turtles that can move around, draw lines, and respond to commands.
 
@@ -110,7 +111,7 @@ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2., y: 0.,
 
 2. *Backward*
 ```bash
-ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: -2., y: 0., z: 0.}, angular: {x: 0., y: 0., z: 0.}}"
+ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: -2.}}"
 ```
 
 ---
@@ -168,8 +169,9 @@ ros2 service call /reset std_srvs/srv/Empty "{}"
 ```
 
 == Turtle Drawing Challenge
+#title-slide[Service Calls][Create patterns using ROS 2 CLI tools]
 
-Use `turtlesim` to create a square pattern using only *ROS 2* command-line tools. The goal is to make the turtle draw a perfect square without any programming.
+Use *turtlesim* to create a square pattern using only *ROS 2* command-line tools. The goal is to make the turtle draw a perfect square without any programming.
 
 === What to Observe
 
@@ -233,7 +235,7 @@ ros2 service call /reset std_srvs/srv/Empty "{}"
 #solution[
 ```bash
 # Move forward 2 units
-ros2 topic pub --once /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0}}"
+ros2 topic pub -t 8 -r 2  /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.5}}"
 
 # Rotate 90 degrees right
 ros2 topic pub --once /turtle1/cmd_vel geometry_msgs/msg/Twist "{angular: {z: -1.57}}"

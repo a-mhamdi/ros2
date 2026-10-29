@@ -42,10 +42,10 @@
   footer: self => [#box(image("imgs/logos/ROS-icon.svg", height: 0.8em)) ROS 2 | A. Mhamdi],
   config-info(
     title: [Robot Operating Systems],
-    subtitle: [Robot Software Development],
+    subtitle: [Robot Software Development#footnote[Available at #box(image("imgs/GitHub.svg", height: 5%)) #link("https://github.com/a-mhamdi/ros2")]],
     author: [Abdelbacet Mhamdi],
     date: datetime.today(),
-    institution: [MT \@ ISET Bizerte],
+    institution: [Dr.-Ing. in Electrical Engineering\ MT \@ ISET Bizerte],
     logo: image("imgs/logos/ROS.svg"),
   ),
 )
@@ -59,7 +59,7 @@
 
 #include "parts/foundations.typ"            // ROS2 Foundations
 #include "parts/nodes-com.typ"              // Nodes and Communication
-#include "parts/interface-dev.typ"          // Custom Interface Development
+// #include "parts/interface-dev.typ"          // Custom Interface Development
 // #include "parts/config-launch.typ"          // Launch Files
 // #include "parts/rviz-gazebo.typ"            // RVIZ and Gazebo
 // #include "parts/nav-perception.typ"         // Navigation and Perception

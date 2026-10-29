@@ -6,6 +6,7 @@
 *ROS 2* supports three primary types of interfaces for inter-node communication: messages, services, and actions. Each serves a unique purpose in the publish-subscribe or client-server paradigms.
 
 == Interface Types Overview
+#title-slide[TITLE][SUBTITLE]
 
   == Messages (msg)
 
@@ -57,6 +58,7 @@
   ```
 
 == Interface Management Commands
+#title-slide[TITLE][SUBTITLE]
 
   == Basic Interface Commands
 
@@ -91,6 +93,7 @@
   ```
 
 == Creating Custom Interfaces
+#title-slide[TITLE][SUBTITLE]
 
   == Package Structure for Custom Interfaces
 
@@ -114,6 +117,7 @@
   - Correct package.xml dependencies
 
   == Message Definition (.msg)
+  #title-slide[TITLE][SUBTITLE]
 
   ```yaml
   # Name: "my_interfaces/msg/SensorData.msg"
@@ -185,6 +189,7 @@ float64 remaining_distance
   - *Feedback*: Progress updates
 
 == CMakeLists.txt Configuration
+#title-slide[TITLE][SUBTITLE]
 
   == Essential CMakeLists.txt Setup
 
@@ -217,6 +222,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   ```
 
 == Building and Using Custom Interfaces
+#title-slide[TITLE][SUBTITLE]
 
   == Building the Package
 
@@ -290,6 +296,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 
 /*
 == Best Practices
+#title-slide[TITLE][SUBTITLE]
 
   == Interface Design Guidelines
 
@@ -340,6 +347,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 */
 
 == Advanced Topics
+#title-slide[TITLE][SUBTITLE]
 
   == Interface Validation
 
@@ -381,6 +389,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 */
 
 == Summary
+#title-slide[TITLE][SUBTITLE]
 
   / Interface Types:
     - Messages: One-way, asynchronous
